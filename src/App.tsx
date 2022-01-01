@@ -1,22 +1,19 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Redirect, Route, Router, Switch, useHistory } from "react-router-dom";
-
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
+import { AppBar, Box, IconButton, Toolbar } from "@mui/material";
+import { Menu as MenuIcon } from "@mui/icons-material";
+import Typography from "@mui/material/Typography";
+import { Main } from "./components/main";
+import { SideNavStore } from "./store/side-nav-store";
 function App() {
-  return (
-    <Router history={useHistory()}>
-      <div>Hello World</div>
-      <Switch>
-        <Route path="r/:id">
-          <SubReddit></SubReddit>
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/r/all"></Redirect>
-        </Route>
-      </Switch>
-    </Router>
-  );
+  return <Main sideNavStore={SideNavStore}></Main>;
 }
 
 function SubReddit() {
