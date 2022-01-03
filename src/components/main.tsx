@@ -10,39 +10,44 @@ import Typography from "@mui/material/Typography";
 import { ISideNavStore } from "../store/side-nav-store";
 import { observer } from "mobx-react";
 import { SideNav } from "./side-nav";
+import { About } from "./about";
 export interface MainParameters {
   sideNavStore: ISideNavStore;
 }
 const Main = observer((parameters: MainParameters) => {
   return (
     <Router>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-              onClick={() => parameters.sideNavStore.toggleSideNav(true)}
-            >
-              <MenuIcon></MenuIcon>
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              YARC
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <SideNav sideNavStore={parameters.sideNavStore}></SideNav>
+      <Box sx={{ width: "100%", display: "flex", flexDirection: "column" }}>
+        <Box>
+          <AppBar position="static">
+            <Toolbar>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+                onClick={() => parameters.sideNavStore.toggleSideNav(true)}
+              >
+                <MenuIcon></MenuIcon>
+              </IconButton>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                YARC
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <SideNav sideNavStore={parameters.sideNavStore}></SideNav>
+        </Box>
+        <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
+          <Routes>
+            <Route path="/">
+              <Route path="r/:id" element={<SubReddit></SubReddit>}></Route>
+              <Route path="about" element={<About></About>} />
+              <Route index element={<Navigate to="r/all"></Navigate>}></Route>
+            </Route>
+          </Routes>
+        </Box>
       </Box>
-
-      <Routes>
-        <Route path="/">
-          <Route path="r/:id" element={<SubReddit></SubReddit>}></Route>
-          <Route index element={<Navigate to="r/all"></Navigate>}></Route>
-        </Route>
-      </Routes>
     </Router>
   );
 });

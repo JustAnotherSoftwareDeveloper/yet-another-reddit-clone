@@ -13,7 +13,11 @@ import Typography from "@mui/material/Typography";
 import { Main } from "./components/main";
 import { SideNavStore } from "./store/side-nav-store";
 function App() {
-  return <Main sideNavStore={SideNavStore}></Main>;
+  return (
+    <Box sx={{ display: "flex", flexGrow: 1, height: "100vh" }}>
+      <Main sideNavStore={SideNavStore}></Main>
+    </Box>
+  );
 }
 
 function SubReddit() {
