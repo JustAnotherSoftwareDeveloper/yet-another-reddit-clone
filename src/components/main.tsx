@@ -11,8 +11,11 @@ import { ISideNavStore } from "../store/side-nav-store";
 import { observer } from "mobx-react";
 import { SideNav } from "./side-nav";
 import { About } from "./about";
+import { ISubRedditStore } from "../store/sub-reddit-store";
+import { SubReddit } from "./subreddit";
 export interface MainParameters {
   sideNavStore: ISideNavStore;
+  subRedditStore: ISubRedditStore;
 }
 const Main = observer((parameters: MainParameters) => {
   return (
@@ -36,12 +39,22 @@ const Main = observer((parameters: MainParameters) => {
               </Typography>
             </Toolbar>
           </AppBar>
-          <SideNav sideNavStore={parameters.sideNavStore}></SideNav>
+          <SideNav
+            sideNavStore={parameters.sideNavStore}
+            subRedditStore={parameters.subRedditStore}
+          ></SideNav>
         </Box>
         <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
           <Routes>
             <Route path="/">
-              <Route path="r/:id" element={<SubReddit></SubReddit>}></Route>
+              <Route
+                path="r/:id"
+                element={
+                  <SubReddit
+                    subredditStore={parameters.subRedditStore}
+                  ></SubReddit>
+                }
+              ></Route>
               <Route path="about" element={<About></About>} />
               <Route index element={<Navigate to="r/all"></Navigate>}></Route>
             </Route>
@@ -51,7 +64,4 @@ const Main = observer((parameters: MainParameters) => {
     </Router>
   );
 });
-function SubReddit() {
-  return <div>SubReddit</div>;
-}
 export { Main };
