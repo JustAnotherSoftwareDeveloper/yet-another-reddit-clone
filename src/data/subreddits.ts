@@ -7,7 +7,7 @@ const subreddits: SubRedditModel[] = [
   },
   {
     name: "cooking",
-    description: "Find great recipes",
+    description: "Find great tips for making the best meal",
   },
   {
     name: "news",
@@ -26,6 +26,8 @@ const subreddits: SubRedditModel[] = [
     description: `There's more to saving than just avacado toast!`,
   },
 ];
-const subredditMap: Record<string, SubRedditModel> = Object.fromEntries(subreddits.map(sub => [sub.name,sub]));
+const subredditMap: Record<string, SubRedditModel> = Object.fromEntries(
+  subreddits.map((sub) => [sub.name, sub])
+);
 
 export { subredditMap };
