@@ -13,10 +13,15 @@ import Typography from "@mui/material/Typography";
 import { Main } from "./components/main";
 import { SideNavStore } from "./store/side-nav-store";
 import { SubRedditStore } from "./store/sub-reddit-store";
+import { PostStore } from "./store/post-store";
 function App() {
   return (
     <Box sx={{ display: "flex", flexGrow: 1, height: "100vh" }}>
-      <Main sideNavStore={SideNavStore} subRedditStore={SubRedditStore}></Main>
+      <Main
+        sideNavStore={SideNavStore}
+        subRedditStore={SubRedditStore}
+        postStore={PostStore}
+      ></Main>
     </Box>
   );
 }

@@ -15,6 +15,11 @@ export const About = observer(() => {
       {/*  */}
       <Card sx={{ width: "75%", height: "75%" }}>
         <CardContent>
+          <Typography fontWeight="bold">Disclaimer</Typography>
+          <Typography variant="body2">
+            I was not building this to show off my UX design skills. I promise
+            that I won't try to implement something this ugly in production
+          </Typography>
           <Typography fontWeight="bold">About</Typography>
           <Typography variant="body2">
             Yet Another Reddit Clone (YARC) is a simplified version of reddit.

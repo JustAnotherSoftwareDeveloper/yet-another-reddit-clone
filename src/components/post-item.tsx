@@ -18,18 +18,27 @@ import TextSnippetIcon from "@mui/icons-material/TextSnippet";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { IPostStore } from "../store/post-store";
+import { observer } from "mobx-react";
 export interface PostItemParams {
-  post: Post;
+  postId: string;
+  postStore: IPostStore;
 }
 
-export const PostItem = (params: PostItemParams) => {
+export const PostItem = observer((params: PostItemParams) => {
   const [textOpen, setTextOpen] = React.useState(false);
+  const post = params.postStore.getById(params.postId);
   const upvoteDownvote = () => (
-    <span>
-      <Chip label={params.post.votes} color="secondary"></Chip>
+    <Box
+      sx={{
+        display: "flex",
+      }}
+    >
+      <Chip label={post.votes} color="secondary"></Chip>
       <IconButton
         component="span"
         color="primary"
+        onClick={() => params.postStore.upvote(params.postId)}
         sx={{
           paddingLeft: "0",
           paddingRight: "0",
@@ -38,6 +47,7 @@ export const PostItem = (params: PostItemParams) => {
         <ArrowUpwardIcon></ArrowUpwardIcon>
       </IconButton>
       <IconButton
+        onClick={() => params.postStore.downvote(params.postId)}
         component="span"
         color="error"
         sx={{
@@ -47,7 +57,7 @@ export const PostItem = (params: PostItemParams) => {
       >
         <ArrowDownwardIcon></ArrowDownwardIcon>
       </IconButton>
-    </span>
+    </Box>
   );
   const linkItemContent = () => (
     <Typography variant="h5">
@@ -59,8 +69,8 @@ export const PostItem = (params: PostItemParams) => {
       >
         {upvoteDownvote()}
         <LinkIcon></LinkIcon>
-        <a href={params.post.link} target="_blank">
-          {params.post.description}
+        <a href={post.link} target="_blank">
+          {post.description}
         </a>
       </Box>
     </Typography>
@@ -78,7 +88,7 @@ export const PostItem = (params: PostItemParams) => {
           <IconButton component="span" onClick={() => setTextOpen(!textOpen)}>
             <TextSnippetIcon></TextSnippetIcon>
           </IconButton>
-          {params.post.description}
+          {post.description}
         </Box>
       </Typography>
       <Collapse
@@ -88,7 +98,7 @@ export const PostItem = (params: PostItemParams) => {
         sx={{ width: "100%" }}
       >
         <ReactMarkdown
-          children={params.post.content as string}
+          children={post.content as string}
           remarkPlugins={[remarkGfm]}
         />
       </Collapse>
@@ -99,14 +109,14 @@ export const PostItem = (params: PostItemParams) => {
       <Card variant="outlined" sx={{ width: "100%" }}>
         <CardContent
           sx={{
-            paddingTop: "0 !important",
-            paddingBottom: "0 !important",
+            paddingTop: "1 !important",
+            paddingBottom: "1 !important",
           }}
         >
-          {params.post.type === "link" ? linkItemContent() : textItemContent()}
+          {post.type === "link" ? linkItemContent() : textItemContent()}
           <Typography variant="caption">Comments</Typography>
         </CardContent>
       </Card>
     </Box>
   );
-};
+});

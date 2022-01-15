@@ -13,9 +13,11 @@ import { SideNav } from "./side-nav";
 import { About } from "./about";
 import { ISubRedditStore } from "../store/sub-reddit-store";
 import { SubReddit } from "./subreddit";
+import { IPostStore } from "../store/post-store";
 export interface MainParameters {
   sideNavStore: ISideNavStore;
   subRedditStore: ISubRedditStore;
+  postStore: IPostStore
 }
 const Main = observer((parameters: MainParameters) => {
   return (
@@ -52,6 +54,7 @@ const Main = observer((parameters: MainParameters) => {
                 element={
                   <SubReddit
                     subredditStore={parameters.subRedditStore}
+                    postStore={parameters.postStore}
                   ></SubReddit>
                 }
               ></Route>

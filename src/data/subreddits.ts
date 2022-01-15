@@ -17,14 +17,6 @@ const subreddits: SubRedditModel[] = [
     name: "nfl",
     description: "All things related to NFL football",
   },
-  {
-    name: "cscareerquestions",
-    description: "Discuss career advice for software development",
-  },
-  {
-    name: "personalfinance",
-    description: `There's more to saving than just avacado toast!`,
-  },
 ];
 const subredditMap: Record<string, SubRedditModel> = Object.fromEntries(
   subreddits.map((sub) => [sub.name, sub])

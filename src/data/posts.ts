@@ -70,4 +70,94 @@ export const posts: Post[] = [
     content:
       "For me it’s “umami bomb.” So many TV chefs and YouTube personalities use this term. You know like “I’m gonna drop an umami bomb and add some miso to this”",
   },
+  {
+    type: "text",
+    id: "8",
+    votes: 70,
+    subredditId: "cooking",
+    description:
+      "My daughter is limited to a liquid diet. No seeds, no fiber. Her small intestines are mostly blocked,possibly for the remainder of her life. Does anyone have good recipes to infuse savory flavors into creams or gelatin? Or good strained meat recipes?",
+    content: `She has internal scarring, and might is able to have a liquid diet for the most part, but was a foodie (she is 35) and is mourning her current state. Feeding tube and nutrient shakes are keeping her alive. Anyone have a brilliant way to provide flavor? Fibre is out, a seeds, pretty much anything interesting is blocked. Any creative ideas welcomed!\n\nEdit: I cannot believe this response. You all are amazing and so generous with your time and expertise. I'm going to have to sign out now. Can't thank you enough for all your support and kind words. Thanks!`,
+  },
+  {
+    type: "text",
+    id: "9",
+    votes: 34,
+    subredditId: "cooking",
+    description: "I poisoned myself with nutmeg",
+    content: `I've been enjoying making smoothies for breakfast and the last of couple days I've decided to spice things up with some freshly grated nutmeg. Since I have a bag with 15 nuts I thought I could be more generous with the spice today. I ended up adding half a nut (around 3 grams) and boy have the last few hours been miserable. Stomach discomfort, anxiety, dizziness. Almost like a panic attack. A quick search revealed that nutmeg is indeed toxic and even as little as 10g or 2tps can make for a long terrible experience. I feel better now but I'm still a little shaky. So this is my new years PSA: go easy on the nutmeg. The worst part of all of this is that earlier today I made apple pie filling with, again, a generous amount of nutmeg. Now I'm too traumatized to try it...\n\nEdit: Thank you for sharing your experiences. I had no idea this was something people experimented with.\nSo my smoothie tasted only of nutmeg but it didn't taste bad? I definitely didn't feel forced to finish it.\nIt seems like I have a dull palate and a sensitive mind. I'll be more restrained with my spice use moving forward.\nI'll also make more pie filling to add to the mix. Thank you for that suggestion.`,
+  },
+  {
+    type: "link",
+    id: "10",
+    votes: 70,
+    subredditId: "news",
+    description:
+      "US hospitals struggle to match Walmart pay as staff flees omicron",
+    link: "https://m.arcamax.com/currentnews/newsheadlines/s-2617292-p2",
+  },
+  {
+    type: "link",
+    id: "11",
+    votes: 56,
+    subredditId: "news",
+    description:
+      "Inflation rises 7% over the past year to the highest level since 1982",
+    link: "https://www.cnbc.com/2022/01/12/cpi-december-2021-.html",
+  },
+  {
+    type: "link",
+    id: "12",
+    votes: 46,
+    subredditId: "news",
+    description:
+      "'Like a slap in the face': Nurses told to use vacation and sick days to stay home if they test positive",
+    link: "https://www.nbcnews.com/business/business-news/-slap-face-nurses-told-use-vacation-sick-days-stay-home-test-positive-rcna12140",
+  },
+  {
+    type: "link",
+    id: "13",
+    votes: 40,
+    description: `
+    Justice Dept. creating unit focused on domestic terrorism `,
+    subredditId: "news",
+    link: "https://www.wbrc.com/2022/01/11/justice-dept-creating-unit-focused-domestic-terrorism/",
+  },
+  {
+    type: "link",
+    id: "14",
+    votes: 35,
+    subredditId: "news",
+    description: `
+    Texas school district asks parents to become substitute teachers amid COVID surge`,
+    link: "https://www.fox7austin.com/news/texas-school-district-asks-parents-to-become-substitute-teachers-amid-covid-surge",
+  },
+  {
+    type: "link",
+    id: "15",
+    votes: 29,
+    subredditId: "nfl",
+    description:
+      "[Yates] The Bengals have not won a playoff game since January 6, 1991, the longest active drought in the NFL. They went from worst to first in the AFC North and today host the Raiders with a chance to snap that streak. Should be an electric atmosphere at Paul Brown stadium. ",
+    link: "https://twitter.com/FieldYates/status/1482346153647689737?s=20",
+  },
+  {
+    type: "text",
+    id: "16",
+    votes: 12,
+    subredditId: "nfl",
+    description: "Brian Flores Reports",
+    content: `Is it me, or all of the Brian Flores reports that are coming out are Miami's attempt to discredit him and justify his firing. I've seen reports that he stopped talking to his coaches to how he didn't like that Tua played golf. It is too convenient that all the stuff he supposedly did is coming out now. Miami is basically saying "see he did all these questionable things. We fired him for that and not because we are incompetent. Please like us." If I was a coach I would be wary of working for the dolphin organization.`,
+  },
+  {
+    type: "link",
+    id: "17",
+    votes: 9,
+    subredditId: "nfl",
+    description: `[Rapoport] The Raiders and QB Derek Carr have a mutual decision to make this offseason, and sources say the choice of the head coach will be a factor.`,
+    link: `https://www.nfl.com/news/derek-carr-s-future-with-raiders-likely-tied-to-hc-hire`,
+  },
 ];
+
+const postMap = Object.fromEntries(posts.map((p) => [p.id, p]));
+export { postMap };
