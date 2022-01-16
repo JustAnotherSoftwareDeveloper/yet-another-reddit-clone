@@ -14,10 +14,13 @@ import { About } from "./about";
 import { ISubRedditStore } from "../store/sub-reddit-store";
 import { SubReddit } from "./subreddit";
 import { IPostStore } from "../store/post-store";
+import { PostDetail } from "./post-details";
+import { ICommentStore } from "../store/comment-store";
 export interface MainParameters {
   sideNavStore: ISideNavStore;
   subRedditStore: ISubRedditStore;
-  postStore: IPostStore
+  postStore: IPostStore;
+  commentStore: ICommentStore;
 }
 const Main = observer((parameters: MainParameters) => {
   return (
@@ -56,6 +59,15 @@ const Main = observer((parameters: MainParameters) => {
                     subredditStore={parameters.subRedditStore}
                     postStore={parameters.postStore}
                   ></SubReddit>
+                }
+              ></Route>
+              <Route
+                path="post/:id"
+                element={
+                  <PostDetail
+                    commentStore={parameters.commentStore}
+                    postsStore={parameters.postStore}
+                  ></PostDetail>
                 }
               ></Route>
               <Route path="about" element={<About></About>} />

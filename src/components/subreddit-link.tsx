@@ -9,9 +9,15 @@ export interface SubRedditLinkParams {
 export const SubRedditLink = (params: SubRedditLinkParams) => {
   const getSubRedditLink = () => `/r/${params.subreddit.name}`;
   return (
-    <ListItemButton component={Link} to={getSubRedditLink()}>
-      <ListItemText>{params.subreddit.name}</ListItemText>
-      <LinkIcon></LinkIcon>
+    <ListItemButton
+      key={params.subreddit.name}
+      component={Link}
+      to={getSubRedditLink()}
+    >
+      <ListItemText key={`${params.subreddit.name}-text`}>
+        {params.subreddit.name}
+      </ListItemText>
+      <LinkIcon key={`${params.subreddit.name}-icon`}></LinkIcon>
     </ListItemButton>
   );
 };

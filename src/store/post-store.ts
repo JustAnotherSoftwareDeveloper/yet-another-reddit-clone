@@ -1,4 +1,4 @@
-import { makeObservable, observable } from "mobx";
+import { action, makeObservable, observable } from "mobx";
 import { postMap } from "../data/posts";
 import { Post } from "../model/post";
 
@@ -8,6 +8,8 @@ class PostStore {
   constructor() {
     makeObservable(this, {
       posts: observable,
+      upvote: action,
+      downvote: action,
     });
   }
 

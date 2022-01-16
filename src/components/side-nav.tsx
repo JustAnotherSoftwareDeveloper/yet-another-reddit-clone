@@ -60,12 +60,12 @@ export const SideNav = observer((params: SideNavParams) => {
                   flexDirection: "column",
                 }}
               >
-                <ListItemButton component={Link} to="/r/all">
+                <ListItemButton key="all" component={Link} to="/r/all">
                   <ListItemText>All</ListItemText>
                   <LinkIcon></LinkIcon>
                 </ListItemButton>
                 {params.subRedditStore.allSubreddits.map((sub) => (
-                  <SubRedditLink subreddit={sub}></SubRedditLink>
+                  <SubRedditLink key={sub.name} subreddit={sub}></SubRedditLink>
                 ))}
               </Box>
             </List>

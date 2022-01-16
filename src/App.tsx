@@ -14,6 +14,7 @@ import { Main } from "./components/main";
 import { SideNavStore } from "./store/side-nav-store";
 import { SubRedditStore } from "./store/sub-reddit-store";
 import { PostStore } from "./store/post-store";
+import { CommentStore } from "./store/comment-store";
 function App() {
   return (
     <Box sx={{ display: "flex", flexGrow: 1, height: "100vh" }}>
@@ -21,6 +22,7 @@ function App() {
         sideNavStore={SideNavStore}
         subRedditStore={SubRedditStore}
         postStore={PostStore}
+        commentStore={CommentStore}
       ></Main>
     </Box>
   );

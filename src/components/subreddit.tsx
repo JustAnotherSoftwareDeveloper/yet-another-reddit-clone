@@ -18,7 +18,7 @@ export const SubReddit = observer((params: SubRedditParams) => {
 
   const posts = params.postStore.getBySubReddit(id as string);
   const postElements = posts.map((p) => (
-    <ListItem>
+    <ListItem key={p.id}>
       <PostItem postStore={params.postStore} postId={p.id}></PostItem>
     </ListItem>
   ));
@@ -37,7 +37,7 @@ export const SubReddit = observer((params: SubRedditParams) => {
         paddingTop: "2vh",
       }}
     >
-      <Paper variant="outlined" elevation={3}>
+      <Paper variant="outlined">
         <Typography variant="h2">{getTitle()}</Typography>
         <Typography variant="caption">{getDescription()}</Typography>
       </Paper>

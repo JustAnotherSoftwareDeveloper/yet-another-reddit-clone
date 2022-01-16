@@ -20,6 +20,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { IPostStore } from "../store/post-store";
 import { observer } from "mobx-react";
+import { Link } from "react-router-dom";
 export interface PostItemParams {
   postId: string;
   postStore: IPostStore;
@@ -114,7 +115,9 @@ export const PostItem = observer((params: PostItemParams) => {
           }}
         >
           {post.type === "link" ? linkItemContent() : textItemContent()}
-          <Typography variant="caption">Comments</Typography>
+          <Typography variant="caption">
+            <Link to={`/post/${post.id}`}>Comments</Link>
+          </Typography>
         </CardContent>
       </Card>
     </Box>

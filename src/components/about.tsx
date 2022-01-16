@@ -29,7 +29,7 @@ export const About = observer(() => {
             sort, nested comments, or anything but the most minimal features.
           </Typography>
           <Typography fontWeight="bold">Technologies Used</Typography>
-          <Typography variant="body2">
+          <Typography variant="body2" component="span">
             <ul>
               <li>React</li>
               <li>Typescript</li>
